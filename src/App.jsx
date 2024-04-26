@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Bloom, EffectComposer } from '@react-three/postprocessing';
-import { BlurPass, Resizer, KernelSize, Resolution } from 'postprocessing'
+import { Bloom, EffectComposer, Noise } from '@react-three/postprocessing';
+import { BlurPass, Resizer, KernelSize, Resolution, BlendFunction } from 'postprocessing'
 import { useGLTF, PointerLockControls, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import { Leva, useControls } from 'leva';
@@ -500,9 +500,13 @@ function App() {
   // const { directionalLightOn } = useControls({
   //   directionalLightOn: false
   // });
+  const [isTextVisible, setTextVisible] = useState(true); // State to control text visibility
 
+  const handleClick = () => {
+    setTextVisible(false); // Set text visibility to false on click
+  };
   return (
-    <div>
+    <div onClick={handleClick}>
       <BackgroundMusic src="/assets/musicRadio.mp3" />
       <Canvas
         style={{ width: `100%`, height: `100vh`, backgroundColor: 'black' }}
@@ -524,8 +528,16 @@ function App() {
             resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
             resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
           />
+          <Noise
+            premultiply // enables or disables noise premultiplication
+            blendFunction={BlendFunction.ADD} // blend mode
+          />
         </EffectComposer>
       </Canvas>
+      {isTextVisible && <div>
+        <div className="clickToStart">click to start</div>
+        <div className='title'>Echoes Of Light</div>
+      </div>}
     </div>
   );
 }
