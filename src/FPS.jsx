@@ -99,7 +99,9 @@ function FPSControls({ setMessage }) {
             setHasTriggered(true); // Prevent further triggers
 
             setTimeout(() => {
-                setMessage("here we go again"); // Example message
+                const messages = ["here we go again", "nope... I guess", "yay... I love it here", "I'm back!", "ah..shit", "c'mon"];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                setMessage(randomMessage);  // Set message
                 setTimeout(() => setMessage(null), 5000); // Clear message after 5 seconds
 
                 camera.position.set(0, 0, 0); // Reset camera position
