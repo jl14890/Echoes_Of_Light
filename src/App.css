@@ -37,7 +37,7 @@ canvas {
   height: 10vh;
 
   font-family: 'TypeReg';
-  font-size: 2vw;
+  font-size: 1。5vw;
   /* background-color: #000000; */
   color: #ffffff;
   user-select: none;
@@ -48,7 +48,7 @@ canvas {
   display: flex;
   justify-content: center;
   text-align: center;
-  top: 20%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -56,7 +56,26 @@ canvas {
   height: 10vh;
 
   font-family: 'TypeReg';
-  font-size: 5vw;
+  font-size: 3vw;
+  /* background-color: #000000; */
+  color: #ffffff;
+  user-select: none;
+}
+
+.text-front {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 50vw;
+  height: 10vh;
+
+  font-family: 'TypeReg';
+  font-size: 1。5vw;
   /* background-color: #000000; */
   color: #ffffff;
   user-select: none;
